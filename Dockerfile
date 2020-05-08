@@ -4,7 +4,8 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1 as buildnet
 
 WORKDIR /src
 
-COPY NetApi/NetApi.csproj .
+# Aqui la Carpeta del Proyecto Net Core
+COPY NetApi/{}/NetApi.csproj .
 RUN dotnet restore
 
 COPY NetApi .
@@ -20,7 +21,8 @@ FROM node:alpine as buildvue
 
 WORKDIR /src
 
-COPY vueapp/package.json .
+# Aqui la carpeta del proyecto Vue
+COPY vueapp/{}/package.json .
 RUN npm install
 
 # webpack build
